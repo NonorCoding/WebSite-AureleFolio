@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap");
+
 
 @font-face {
   font-family: "Unna";
   src: url(../fonts/unna_regular.ttf);
-}
-
-@font-face {
-  font-family: 'Author';
-  src: url(../fonts/Amulya-Regular.otf);
 }
 
 :root {
@@ -33,6 +30,18 @@ body {
   background: var(--background);
 }
 
+body::before{
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 500;
+  opacity: .025;
+  pointer-events: none;
+  background-size: cover;
+  background: url(../image/noise.gif);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   display: none;
@@ -55,8 +64,8 @@ body {
 
 * {
   color: var(--primary-color);
-  font-family: "Author";
-  font-weight: 300;
+  font-family: "General Sans", sans-serif;
+  font-weight: 500;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -72,9 +81,8 @@ body {
   left: -20px;
   transform: translate(-50%,-50%);
   border-radius: 50%;
-  z-index: 9999;
+  z-index: 1000;
   pointer-events: none;
-  mix-blend-mode: difference;
 }
 .cursor-outer{
   width: 40px;
@@ -99,32 +107,20 @@ body {
   z-index: 999999;
 }
 
-.unreveal, .texte-reveal{
-  transition: opacity 0.8s ease;
+.unreveal p {
+  transition: opacity .5s ease;
 }
 
 /*main-first-page*/
 
 .main-container {
-  z-index: 3;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
   background-color: var(--background);
-}
-
-.main-container::before{
-  content: "";
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  opacity: .025;
-  pointer-events: none;
-  background-size: cover;
-  background: url(../image/noise.gif);
 }
 
 @keyframes menuFade {
@@ -140,6 +136,16 @@ body {
 @keyframes opacity {
   from { opacity: 0;}
   to { opacity: 1;}
+}
+@keyframes letterSpace {
+  from { 
+    letter-spacing: 5px;
+    opacity: 0;
+  }
+  to { 
+    letter-spacing: 0px;
+    opacity: 1;
+  }
 }
 
 .main-content{
@@ -184,11 +190,13 @@ body {
 
 .main-description {
   font-size: 15px;
-  text-transform: uppercase;
   text-align: center;
-  animation: menuFade 1s ease 400ms both;
+  text-transform: uppercase;
+  animation: letterSpace .7s ease 1s both;
   opacity: 0;
-  width: 60%;
+  width: 100%;
+  position: relative;
+  top: -80px;
 }
 .img-background{
   width: 100%;
@@ -258,7 +266,7 @@ body {
 
 .nav {
   position: fixed;
-  z-index: 99;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -357,31 +365,27 @@ body {
 
 .wrapper {
   display: flex;
-  align-items: center;
   justify-content: left;
-  perspective: 900px;
+  flex-direction: row;
   width: 100%;
-  height: 100vh;
+  padding: 0 10%;
   position: absolute;
   top: calc(115vh + 500px);
+
 }
-.wrapper::before{
-  content: "";
-  position: absolute;
-  width: 100vw;
-  height: 1000vh;
-  z-index: 1;
-  opacity: .025;
-  pointer-events: none;
-  background-size: cover;
-  background: url(../image/noise.gif);
+.wrapper span {
+  color: var(--secondary-color);
+}
+
+.left-wrapper{
+  height: 100%;
+  width: 120px;
 }
 
 .timeline-wrapper {
   z-index: 2;
-  position: absolute;
+  position: relative;
   background: white;
-  left: 15%;
   top: 0;
   height: 400vh;
   width: 3px;
@@ -392,7 +396,7 @@ body {
 }
 .timeline-wrapper-line {
   position: absolute;
-  transition: height 0.3s ease;
+  transition: height 0.3s ease-in-out;
   background: var(--secondary-color);
   top: 0;
   bottom: 0;
@@ -452,16 +456,22 @@ body {
   }
 }
 
-.wrapper-container {
-  z-index: 2;
+
+.right-wrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.first-wrapper, .seconde-wrapper {
+  z-index: 3;
   height: 60vh;
   width: 100%;
-  padding-left: 20%; 
+  margin-bottom: 20vh;
   perspective: 500px;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   overflow-y: visible;
@@ -471,20 +481,43 @@ body {
   top: 0;
   left: 0;
   transform-style: preserve-3d;
-  transform-origin: 50% 50% -10vw;
+  transform-origin: 50% 50% -100px;
   transform: rotateX(0deg);
   opacity: 0;
+  width: 100%;
 }
 
-.title-content:nth-child(1) p {
-  font-size: 50px;
-  font-weight: 900;
+.title-content:nth-child(1) p, .title-content:nth-child(1) span {
+  font-size: 60px;
+  font-weight: 600;
   width: 100%;
   box-sizing: border-box;
 }
+
 .title-content:nth-child(2) p {
-  font-size: 18px;
-  width: 100%;
+  font-size: 20px;
   box-sizing: border-box;
   transition: all 0.8s ease;
+  position: absolute;
+}
+.title-content:nth-child(2) p::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  bottom: -8%;
+  left: 0;
+  background: #fff;
+  transition: transform .5s cubic-bezier(.79,.11,0,1.09);
+  transform: translateX(-50%) scaleX(0%);
+  overflow: hidden;
+}
+.title-content:nth-child(2).actived p::before {
+  transform: translateX(0%) scaleX(100%);
+}
+
+
+.qualifications p, .qualifications span{
+  font-size: 25px;
+  font-weight: 600;
 }

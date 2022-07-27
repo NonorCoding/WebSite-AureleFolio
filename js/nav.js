@@ -14,13 +14,13 @@ function navigation(value){
 
   if (value === 2){
     bar.style.width = second.offsetWidth + "px";
-    bar.style.left = "84px";
+    bar.style.left = "83px";
     window.scrollTo(0, 1424);
   }
 
   if (value === 3){
     bar.style.width = third.offsetWidth + "px";
-    bar.style.left = "147px";
+    bar.style.left = "146px";
     window.scrollTo(0, 2000);
   }
 
@@ -45,12 +45,12 @@ function EventBarScroll(){
 
   if (scroll >= 500 && scroll <= 2000){
     bar.style.width = second.offsetWidth + "px";
-    bar.style.left = "84px";
+    bar.style.left = "83px";
   }
 
   if (scroll >= 2000 && scroll <= 3000){
     bar.style.width = third.offsetWidth + "px";
-    bar.style.left = "147px";
+    bar.style.left = "146px";
   }
 
   if (scroll >= 3000 && scroll <= 4000){

@@ -1,7 +1,7 @@
 const cursor = document.querySelector(".cursor-inner");
-const cursor2 = document.querySelector(".cursor-outer");
-const anchor = document.querySelectorAll("a, nav");
-const allElements = document.querySelector("*");
+      cursor2 = document.querySelector(".cursor-outer");
+      anchor = document.querySelectorAll("a, nav");
+      allElements = document.querySelector("*");
 
 window.addEventListener("load", () => {
   var isMobile = navigator.userAgent.toLowerCase().match(/mobile/i);
@@ -33,10 +33,12 @@ anchor.forEach((anc) => {
     cursor2.style.width = '0px';
     cursor2.style.height = '0px';
     cursor2.style.opacity = '0';
+    cursor.style.mixBlendMode = 'difference';
   });
   anc.addEventListener("mouseleave", () => {
     cursor2.style.width = '50px';
     cursor2.style.height = '50px';
     cursor2.style.opacity = '1';
+    cursor.style.mixBlendMode = '';
   });
 });
