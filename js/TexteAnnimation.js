@@ -1,5 +1,5 @@
 const radient = document.querySelectorAll('.title-content');
-      quality = document.querySelector('.qualifications');
+      quality = document.querySelectorAll('.qualifications');
       firstWrapper = document.querySelector('.first-wrapper');
       secondeWrapper = document.querySelector('.seconde-wrapper');
       timeline = document.getElementById('timeline-wrapper');
@@ -31,7 +31,7 @@ function TextAnimation(container) {
         elementPos = Math.min(Math.max(0, -container.getBoundingClientRect().top + window.innerHeight), elementHeight);
         opacite = elementPos / elementHeight;
 
-    const translate = 100;
+    const translate = 80;
           rotation = 60;
     
     if (container === firstWrapper){
@@ -55,8 +55,11 @@ function TextAnimation(container) {
     if (container === secondeWrapper){
         var animation = translate - (elementPos / elementHeight)*translate;
 
-        quality.style.opacity = opacite;
-        quality.style.transform = "translateX("+animation+"px)";
+        quality[0].style.opacity = opacite;
+        quality[0].style.transform = "translateX("+animation+"px)";
+
+        quality[1].style.opacity = opacite;
+        quality[1].style.transform = "translateX("+ -animation +"px)";
     }
 }
 
