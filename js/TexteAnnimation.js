@@ -18,8 +18,8 @@ window.addEventListener('scroll', ()=> {
     TextAnimation(secondeWrapper);
 
     //Timeline annimation
-    timeline.style.height = Math.max(0 , scroll-windowheight*1.2) + 'px';
-    timelineTransparent.style.height = Math.max(0 , scroll-windowheight*1.2) + 'px';
+    timeline.style.height = Math.max(0 , scroll-windowheight*1.3) + 'px';
+    timelineTransparent.style.height = Math.max(0 , scroll-windowheight*1.3) + 'px';
 
     TimlineAnimation();
 
@@ -44,12 +44,6 @@ function TextAnimation(container) {
         radient[1].style.opacity = opacite;
 
         console.log(elementHeight + 1, elementPos);
-
-        if (elementHeight < elementPos+1){
-            document.querySelector('.title-content:nth-child(2)').classList.add('actived');
-        }else{
-            document.querySelector('.title-content:nth-child(2)').classList.remove('actived');
-        }
     }
 
     if (container === secondeWrapper){
@@ -109,15 +103,6 @@ function TimlineAnimation(){
         node[4].style.setProperty("--color", "#fff");
         node[4].classList.remove("actived");
     }
-
-    if( timelineTransparent.getBoundingClientRect().bottom > node[5].getBoundingClientRect().bottom){
-        node[5].style.setProperty("--color", "#4880f8");
-        node[5].classList.add("actived");
-    }
-    else{
-        node[5].style.setProperty("--color", "#fff");
-        node[5].classList.remove("actived");
-    }
 }
 
 
@@ -126,10 +111,9 @@ function reveal() {
 
   for (var i = 0; i < unreveal.length; i++) {
 
-    var vh = window.innerHeight;
-    var revealtop = unreveal[i].getBoundingClientRect().top + (vh - 80);
+    var revealtop = unreveal[i].getBoundingClientRect().top + (windowheight - 80);
 
-    if (revealtop < vh) {
+    if (revealtop < windowheight) {
         unreveal[i].style.opacity = "0";
     } 
     

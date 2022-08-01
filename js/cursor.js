@@ -1,6 +1,6 @@
 const cursor = document.querySelector(".cursor-inner");
       cursor2 = document.querySelector(".cursor-outer");
-      anchor = document.querySelectorAll("a, nav");
+      anchor = document.querySelectorAll("a");
       allElements = document.querySelector("*");
 
 window.addEventListener("load", () => {
