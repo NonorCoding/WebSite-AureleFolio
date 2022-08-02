@@ -42,8 +42,6 @@ function TextAnimation(container) {
     
         radient[1].style.transform = "rotateX("+ -animation+"deg)";
         radient[1].style.opacity = opacite;
-
-        console.log(elementHeight + 1, elementPos);
     }
 
     if (container === secondeWrapper){

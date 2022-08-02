@@ -5,14 +5,14 @@ const second = document.querySelector('.nav-menu-items li:nth-child(2)');
 const third = document.querySelector('.nav-menu-items li:nth-child(3)');
 const fourth = document.querySelector('.nav-menu-items li:nth-child(4)');
 
-const secondLeft = 21 + 16 + first.offsetWidth;
+const secondLeft = 19 + 16 + first.offsetWidth;
 const thirdLeft = secondLeft + 16 + second.offsetWidth;
 const fourthLeft = thirdLeft + 16 + third.offsetWidth;
 
 function navigation(value){
   if (value === 1){
     bar.style.width = first.offsetWidth + "px";
-    bar.style.left = "21px";
+    bar.style.left = "19px";
     window.scrollTo(0, 0);
   }
 
@@ -44,7 +44,7 @@ function EventBarScroll(){
 
   if (scroll <= 500){
     bar.style.width = first.offsetWidth + "px";
-    bar.style.left = "21px";
+    bar.style.left = "19px";
   }
 
   if (scroll >= 500 && scroll <= 2000){
