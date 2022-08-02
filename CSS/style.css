@@ -421,8 +421,8 @@ body::before{
 }
 .node::after {
   content: "";
-  width: 3vw;
-  height: 3vw;
+  width: 15px;
+  height: 15px;
   background: var(--color);
   border-radius: 50px;
   position: absolute;
@@ -433,8 +433,8 @@ body::before{
 }
 .node::before {
   content: "";
-  width: 3vw;
-  height: 3vw;
+  width: 15px;
+  height: 15px;
   border: solid 5px var(--background);
   border-radius: 50px;
   position: absolute;
