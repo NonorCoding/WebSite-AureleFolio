@@ -3,10 +3,11 @@ const radient = document.querySelectorAll('.title-content');
       firstWrapper = document.querySelector('.first-wrapper');
       secondeWrapper = document.querySelector('.seconde-wrapper');
       timeline = document.getElementById('timeline-wrapper');
-      timelineTransparent = document.getElementById('timeline-wrapper-transparent');
-      node = document.querySelectorAll('.node');
+      node = document.querySelectorAll('.wrapper-container');
 
 var windowheight = window.innerHeight;
+
+window.onload = function() {document.querySelector('.timeline-wrapper').style.height = document.querySelector('.right-wrapper').getBoundingClientRect().height + 'px'}
 
 window.addEventListener('scroll', ()=> {
     var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;  
@@ -17,18 +18,31 @@ window.addEventListener('scroll', ()=> {
 
     TextAnimation(secondeWrapper);
 
-    //Timeline annimation
-    timeline.style.height = Math.max(0 , scroll-windowheight*1.3) + 'px';
-    timelineTransparent.style.height = Math.max(0 , scroll-windowheight*1.3) + 'px';
-
-    TimlineAnimation();
+    TimlineAnimation(scroll);
 
     reveal();
 });
 
+
+var i = 0;
+
+function TimlineAnimation(scroll) {
+    timelineScroll = Math.max(0 , scroll-650-windowheight);
+    timeline.style.height = timelineScroll + 'px';
+
+    if(windowheight > node[i].getBoundingClientRect().bottom){
+        node[i].classList.add("actived");
+        i++;
+        console.log(i);
+    }else{
+        node[i].classList.remove("actived");
+        i--;
+    }
+}
+
 function TextAnimation(container) {
-    var elementHeight = container.getBoundingClientRect().height;
-        elementPos = Math.min(Math.max(0, -container.getBoundingClientRect().top + window.innerHeight), elementHeight);
+    var elementHeight = container.getBoundingClientRect().height/2;
+        elementPos = Math.min(Math.max(0, -container.getBoundingClientRect().top + window.innerHeight/2), elementHeight);
         opacite = elementPos / elementHeight;
 
     const translate = 80;
@@ -54,55 +68,6 @@ function TextAnimation(container) {
         quality[1].style.transform = "translateX("+ -animation +"px)";
     }
 }
-
-
-function TimlineAnimation(){
-    if( timelineTransparent.getBoundingClientRect().bottom > node[0].getBoundingClientRect().bottom){
-        node[0].style.setProperty("--color", "#4880f8");
-        node[0].classList.add("actived");
-    }
-    else{
-        node[0].style.setProperty("--color", "#fff");
-        node[0].classList.remove("actived");
-    }
-
-    if( timelineTransparent.getBoundingClientRect().bottom > node[1].getBoundingClientRect().bottom){
-        node[1].style.setProperty("--color", "#4880f8");
-        node[1].classList.add("actived");
-    }
-    else{
-        node[1].style.setProperty("--color", "#fff");
-        node[1].classList.remove("actived");
-    }
-
-    if( timelineTransparent.getBoundingClientRect().bottom > node[2].getBoundingClientRect().bottom){
-        node[2].style.setProperty("--color", "#4880f8");
-        node[2].classList.add("actived");
-    }
-    else{
-        node[2].style.setProperty("--color", "#fff");
-        node[2].classList.remove("actived");
-    }
-
-    if( timelineTransparent.getBoundingClientRect().bottom > node[3].getBoundingClientRect().bottom){
-        node[3].style.setProperty("--color", "#4880f8");
-        node[3].classList.add("actived");
-    }
-    else{
-        node[3].style.setProperty("--color", "#fff");
-        node[3].classList.remove("actived");
-    }
-
-    if( timelineTransparent.getBoundingClientRect().bottom > node[4].getBoundingClientRect().bottom){
-        node[4].style.setProperty("--color", "#4880f8");
-        node[4].classList.add("actived");
-    }
-    else{
-        node[4].style.setProperty("--color", "#fff");
-        node[4].classList.remove("actived");
-    }
-}
-
 
 function reveal() {
   const unreveal = document.querySelectorAll('.unreveal p');

@@ -1,4 +1,4 @@
-let sliderContainer = document.querySelector('.skill-card');
+/*let sliderContainer = document.querySelector('.skill-card');
 let innerSlider = document.querySelector('.skill-card-container');
 
 let pressed = false;
@@ -34,4 +34,4 @@ const checkBoundary = () => {
     if (inner.right < outer.right) {
         innerSlider.style.left = `-${inner.width - outer.width}px`;
     }
-};
+};*/

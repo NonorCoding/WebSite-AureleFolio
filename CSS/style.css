@@ -118,7 +118,7 @@ body::before{
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 105vh;
   background-color: var(--background);
 }
 
@@ -161,9 +161,11 @@ body::before{
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  bottom: 5vh;
+  position: relative;
 }
 .main-logo p{
-  font-size: 20vw;
+  font-size: 25vw;
   animation: menuFade 1s ease 50ms both;
   opacity: 0;
   font-family: 'Unna';
@@ -196,7 +198,9 @@ body::before{
   animation: letterSpace .7s ease 1.3s both;
   opacity: 0;
   width: 100%;
-  padding: 0 12%;
+  padding: 0 5px;
+  bottom: 5vh;
+  position: relative;
 }
 .img-background{
   width: 100%;
@@ -216,17 +220,17 @@ body::before{
 
 .resaux{
   position: absolute;
-  bottom: 50px;
+  top: 50px;
   right: 50px;
 }
 .resaux ul{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .resaux ul li{
-  margin: 0 15px;
+  margin: 6px 0;
   font-size: 17px;
   display: block;
   opacity: .4;
@@ -271,7 +275,7 @@ body::before{
   align-items: center;
   justify-content: center;
   width: 100%;
-  bottom: 12%;
+  bottom: 50px;
 }
 
 .nav .nav-menu{
@@ -361,9 +365,8 @@ body::before{
   justify-content: left;
   flex-direction: row;
   width: 100%;
-  position: absolute;
-  top: calc(115vh + 500px);
-
+  position: relative;
+  top: 90vh;
 }
 .wrapper span {
   color: var(--secondary-color);
@@ -378,8 +381,8 @@ body::before{
   z-index: 2;
   position: relative;
   background: white;
-  top: 15px;
-  height: 360vh;
+  top: 50vh;
+  height: 100%;
   width: 3px;
   display: flex;
   align-items: center;
@@ -392,52 +395,11 @@ body::before{
   top: 0;
   bottom: 0;
   height: 0;
-  max-height: 361vh;
   width: 3px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-}
-.timeline-wrapper-line-transparent {
-  position: absolute;
-  background: transparent;
-  top: 0;
-  bottom: 0;
-  height: 0;
-  max-height: 361vh;
-  width: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.node {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.node::after {
-  content: "";
-  width: 15px;
-  height: 15px;
-  background: var(--color);
-  border-radius: 50px;
-  position: absolute;
-  transition: background 0.3s ease;
-}
-.node.actived:after {
-  animation: pulseNodes 1s ease;
-}
-.node::before {
-  content: "";
-  width: 15px;
-  height: 15px;
-  border: solid 5px var(--background);
-  border-radius: 50px;
-  position: absolute;
 }
 
 @keyframes pulseNodes {
@@ -449,7 +411,6 @@ body::before{
   }
 }
 
-
 .right-wrapper{
   width: 85%;
   height: 100%;
@@ -457,27 +418,40 @@ body::before{
 
 .first-wrapper, .seconde-wrapper, .third-wrapper, .fourth-wrapper, .fifth-wrapper {
   z-index: 3;
-  height: 60vh;
+  height: 100vh;
   width: 100%;
-  margin-bottom: 30vh;
-  perspective: 500px;
+  perspective: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   position: relative;
   top: 0;
   left: 0;
-  padding-left: 15%;
+  padding-left: 10%;
+}
+
+.wrapper-container::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: var(--color);
+  border-radius: 50px;
+  position: absolute;
+  transition: background 0.3s ease;
+  left: -9px;
+}
+.wrapper-container.actived::after {
+  animation: pulseNodes 1s ease;
+  background: var(--secondary-color);
 }
 
 .title-content {
   top: 0;
   left: 0;
   transform-style: preserve-3d;
-  transform-origin: center center -100px;
-  transform: rotateX(0deg);
-  opacity: 0;
+  transform-origin: 50% 50% -100px;
   width: 100%;
+  position: relative;
 }
 
 .tall-title, .tall-title span{
@@ -489,15 +463,11 @@ body::before{
   font-weight: 500;
 }
 
-.wrapper p{
-  position: absolute;
-}
-
 .underlined{
   padding-bottom: 5px;
   text-decoration: underline;
   text-underline-offset: 15%;
-  text-decoration-thickness: .7vw;
+  text-decoration-thickness: 5px;
   text-decoration-color: #fff;
 }
 
@@ -537,4 +507,14 @@ body::before{
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+/* Footer */
+
+footer {
+  width: 100vw;
+  height: 30vh;
+  background-color: var(--seconde-background);
+  top: 120vh;
+  position: relative;
 }
