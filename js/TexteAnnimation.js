@@ -3,11 +3,16 @@ const radient = document.querySelectorAll('.title-content');
       firstWrapper = document.querySelector('.first-wrapper');
       secondeWrapper = document.querySelector('.seconde-wrapper');
       timeline = document.getElementById('timeline-wrapper');
-      node = document.querySelectorAll('.wrapper-container');
+      wrapperContainerNode = document.querySelectorAll('.wrapper-container');
 
 var windowheight = window.innerHeight;
 
-window.onload = function() {document.querySelector('.timeline-wrapper').style.height = document.querySelector('.right-wrapper').getBoundingClientRect().height + 'px'}
+let j = 0;
+
+window.addEventListener('load', () => {
+    document.querySelector('.timeline-wrapper').style.height = document.querySelector('.right-wrapper').getBoundingClientRect().height - firstWrapper.getBoundingClientRect().height + 'px'
+    timeline.style.maxHeight = document.querySelector('.right-wrapper').getBoundingClientRect().height - firstWrapper.getBoundingClientRect().height + 'px'
+})
 
 window.addEventListener('scroll', ()=> {
     var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;  
@@ -23,20 +28,25 @@ window.addEventListener('scroll', ()=> {
     reveal();
 });
 
-
-var i = 0;
-
 function TimlineAnimation(scroll) {
     timelineScroll = Math.max(0 , scroll-650-windowheight);
     timeline.style.height = timelineScroll + 'px';
+      
+    console.log(j);
 
-    if(windowheight > node[i].getBoundingClientRect().bottom){
-        node[i].classList.add("actived");
-        i++;
-        console.log(i);
+    if(windowheight > wrapperContainerNode[j].getBoundingClientRect().bottom){
+        wrapperContainerNode[j].classList.add("actived");
+        j++;
     }else{
-        node[i].classList.remove("actived");
-        i--;
+        wrapperContainerNode[j].classList.remove("actived");
+        j--;
+    }
+
+    if(j < 0){
+        j++;
+    }
+    if(j >= wrapperContainerNode.length){
+        j--;
     }
 }
 
