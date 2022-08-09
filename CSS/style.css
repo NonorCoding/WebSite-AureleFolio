@@ -118,7 +118,7 @@ body::before{
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 105vh;
+  height: 100vh;
   background-color: var(--background);
 }
 
@@ -165,7 +165,7 @@ body::before{
   position: relative;
 }
 .main-logo p{
-  font-size: 25vw;
+  font-size: 20vw;
   animation: menuFade 1s ease 50ms both;
   opacity: 0;
   font-family: 'Unna';
@@ -198,7 +198,7 @@ body::before{
   animation: letterSpace .7s ease 1.3s both;
   opacity: 0;
   width: 100%;
-  padding: 0 5px;
+  padding: 0 10%;
   bottom: 5vh;
   position: relative;
 }
@@ -275,7 +275,7 @@ body::before{
   align-items: center;
   justify-content: center;
   width: 100%;
-  bottom: 50px;
+  bottom: 8%;
 }
 
 .nav .nav-menu{
@@ -366,7 +366,7 @@ body::before{
   flex-direction: row;
   width: 100%;
   position: relative;
-  top: 90vh;
+  top: 300px;
 }
 .wrapper span {
   color: var(--secondary-color);
@@ -377,29 +377,18 @@ body::before{
   padding-left: 10%;
 }
 
-.timeline-wrapper {
+.timeline-wrapper, .timeline-wrapper-line {
   z-index: 2;
   position: relative;
   background: white;
   top: 50vh;
-  height: 100%;
-  width: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
+  width: 4px;
 }
 .timeline-wrapper-line {
   position: absolute;
   background: var(--secondary-color);
   top: 0;
   bottom: 0;
-  height: 0;
-  width: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
 }
 
 @keyframes pulseNodes {
@@ -416,29 +405,38 @@ body::before{
   height: 100%;
 }
 
-.first-wrapper, .seconde-wrapper, .third-wrapper, .fourth-wrapper, .fifth-wrapper {
+.wrapper-container{
   z-index: 3;
   height: 100vh;
   width: 100%;
-  perspective: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   top: 0;
   left: 0;
+}
+
+.wrapper-content{
+  overflow: hidden;
   padding-left: 10%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  perspective: 700px;
 }
 
 .wrapper-container::after {
   content: "";
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   background: var(--color);
   border-radius: 50px;
   position: absolute;
   transition: background 0.3s ease;
-  left: -9px;
+  left: -10px;
 }
 .wrapper-container.actived::after {
   animation: pulseNodes 1s ease;
@@ -449,17 +447,15 @@ body::before{
   top: 0;
   left: 0;
   transform-style: preserve-3d;
-  transform-origin: 50% 50% -100px;
+  transform-origin: 30% 30% -100px;
   width: 100%;
   position: relative;
 }
 
 .tall-title, .tall-title span{
-  /* font-size: 70px; */
   font-weight: 600;
 }
 .small-texte, .small-texte span{
-  /* font-size: 25px; */
   font-weight: 500;
 }
 
@@ -517,4 +513,66 @@ footer {
   background-color: var(--seconde-background);
   top: 120vh;
   position: relative;
+}
+
+/* OS home */
+
+.OShome{
+  width: 100vw;
+  height: 100vh;
+  padding: 10% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+#user-picture{
+  background-color: #242329;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+#user-picture #head{
+  background-color: #e0e0e0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+}
+
+#user-picture #body{
+  background-color: #e0e0e0;
+  width: 150px;
+  height: 100px;
+  border-radius: 100px 100px 0 0;
+  position: absolute;
+  bottom: -5px;
+}
+
+#OSname p{
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#enter-button button{
+  background-color: #242329;
+  color: #fff;
+  border: none;
+  padding: 10px 55px;
+  font-size: 15px;
+  border-radius: 5px;
+  transition: background .3s ease;
+}
+
+#enter-button button:hover{
+  background-color: #36353d;
 }

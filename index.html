@@ -2,6 +2,9 @@
 <html lang="fr" dir="ltr">
 
 <head>
+
+  <script type="text/javascript">var timerStart = Date.now();</script>
+
   <script src="https://kit.fontawesome.com/29d78fb19f.js" crossorigin="anonymous"></script>
 
   <meta charset="utf-8">
@@ -15,7 +18,7 @@
   <script type="text/javascript" src="js/nav.js" async></script>
   <script type="text/javascript" src="js/cursor.js" async></script>
   <script type="text/javascript" src="js/scrollAnim.js" async></script>
-  <script type="text/javascript" src="js/cardswipe.js" async></script>
+  <!-- <script type="text/javascript" src="js/cardswipe.js" async></script> -->
 
   <title>AureleFolio.com</title>
   <link rel="icon" href="">
@@ -23,7 +26,6 @@
 </head>
 
 <body>
-
 <!-- <p id="counter"><button style="color: #000; padding: 3px 60px;" >Test</button></p> -->
 
 <div class="cursor-outer"></div>
@@ -84,54 +86,68 @@
 <section class="wrapper">
 
   <div class="left-wrapper">
-
-    <div class="timeline-wrapper">
-
-      <div class="timeline-wrapper-line" id="timeline-wrapper"></div>      
-      <div class="node"></div>
-      <div class="node"></div>
-      <div class="node"></div>
-      <div class="node"></div>
-      <div class="node"></div>
-    </div>
-
+    <div class="timeline-wrapper"><div class="timeline-wrapper-line" id="timeline-wrapper"></div></div>
   </div>
 
   <div class="right-wrapper">
 
     <div class="first-wrapper wrapper-container">
-      <div class="title-content unreveal">
-        <p class="tall-title">Hello, i'm <span>Aurele</span>.</p>
-      </div>          
-      <div class="title-content unreveal">
-        <p class="small-texte">Welcome on my folio.</p>    
+      <div class="wrapper-content">
+      
+        <div class="title-content unreveal">
+          <p class="tall-title">Hello, i'm <span>Aurele</span>.</p>
+        </div>          
+        <div class="title-content unreveal">
+          <p class="small-texte">Welcome on my folio.</p>    
+        </div>
+      
       </div>
     </div>
+
   
     <div class="seconde-wrapper wrapper-container">
-      <div class="qualifications unreveal" style="overflow: hidden;">
-        <p class="tall-title underlined">About me.</p>
-      </div>
-      <div class="qualifications unreveal" style="overflow: hidden;">
-        <p class="small-texte">My name is <span>Aurele</span> and I have <span>17 year old</span>.</p>
-      </div>
+      <div class="wrapper-content">
+
+        <div class="qualifications unreveal">
+          <p class="tall-title underlined">About me.</p>
+        </div>
+        <div class="qualifications unreveal">
+          <p class="small-texte">My name is <span>Aurele</span> and I have <span>17 year old</span>.</p>
+        </div>
+
+       </div> 
     </div>
+
 
     <div class="third-wrapper wrapper-container">
-      <div class="skill unreveal">
-        <p class="small-texte">I am novice on <span>web development</span> and <span>graphic design</span>.</p>
+      <div class="wrapper-content">
+
+        <div class="skill unreveal">
+          <p class="small-texte">I am novice on <span>web development</span> and <span>graphic design</span>.</p>
+        </div>
+
       </div>
     </div>
+
 
     <div class="fourth-wrapper wrapper-container">
-      <div class="experience unreveal">
-        <p class="small-texte">I have begin the web development<span> around 2021</span> and the graphic design<span> mid 2020</span>.</p>
+      <div class="wrapper-content">
+
+        <div class="experience unreveal">
+          <p class="small-texte">I have begin the web development<span> around 2021</span> and the graphic design<span> mid 2020</span>.</p>
+        </div>
+
       </div>
     </div>
 
+
     <div class="fifth-wrapper wrapper-container">
-      <div class="skill unreveal">
-        <p class="small-texte">About my different skill on programming languages.</p>
+      <div class="wrapper-content">
+      
+        <div class="skill unreveal">
+          <p class="small-texte">About my different skill on programming languages.</p>
+        </div>
+      
       </div>
 
       <!-- <div class="skill-card">
@@ -207,6 +223,16 @@
 <footer>
   
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function load() {
+    console.log("Time until DOMready: ", Date.now() - timerStart);
+  });
+
+  window.addEventListener('load', function loaded() {
+   console.log("Time until everything loaded: ", Date.now() - timerStart);
+  });
+</script>
 
 </body>
 

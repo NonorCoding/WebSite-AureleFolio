@@ -6,14 +6,14 @@ const bodyPage = document.querySelector('body');
 window.addEventListener('scroll', () => {
     var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    if (scroll < 600){
+    if (scroll < 360){
         main.style.position = 'fixed';
         main.style.top = '0px';
     }else{
         main.style.position = 'relative';
-        main.style.top = '600px';
+        main.style.top = '360px';
     }
     
-    main.style.paddingTop = Math.max(0, Math.min(50, (scroll/12))) + 'px';
+    main.style.padding = Math.max(0, Math.min(30, (scroll/12))) + 'px';
     background1.style.borderRadius = Math.max(0, Math.min(20, (scroll/12))) + 'px';
 })

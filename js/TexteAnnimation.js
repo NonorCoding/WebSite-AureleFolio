@@ -3,16 +3,20 @@ const radient = document.querySelectorAll('.title-content');
       firstWrapper = document.querySelector('.first-wrapper');
       secondeWrapper = document.querySelector('.seconde-wrapper');
       timeline = document.getElementById('timeline-wrapper');
+      fixtimeline = document.querySelector('.timeline-wrapper');
       wrapperContainerNode = document.querySelectorAll('.wrapper-container');
 
 var windowheight = window.innerHeight;
 
-let j = 0;
+window.addEventListener('load', timelineHeight);
+window.addEventListener('resize', timelineHeight);
 
-window.addEventListener('load', () => {
-    document.querySelector('.timeline-wrapper').style.height = document.querySelector('.right-wrapper').getBoundingClientRect().height - firstWrapper.getBoundingClientRect().height + 'px'
-    timeline.style.maxHeight = document.querySelector('.right-wrapper').getBoundingClientRect().height - firstWrapper.getBoundingClientRect().height + 'px'
-})
+function timelineHeight(){
+    var timelineHeight = document.querySelector('.right-wrapper').getBoundingClientRect().height - firstWrapper.getBoundingClientRect().height;
+
+    fixtimeline.style.height = timelineHeight + 'px';
+    timeline.style.maxHeight = timelineHeight + 'px';
+}
 
 window.addEventListener('scroll', ()=> {
     var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;  
@@ -28,13 +32,14 @@ window.addEventListener('scroll', ()=> {
     reveal();
 });
 
-function TimlineAnimation(scroll) {
-    timelineScroll = Math.max(0 , scroll-650-windowheight);
-    timeline.style.height = timelineScroll + 'px';
-      
-    console.log(j);
+var j = 0;
 
-    if(windowheight > wrapperContainerNode[j].getBoundingClientRect().bottom){
+function TimlineAnimation(scroll) {
+    var wh = window.innerHeight;
+
+    timeline.style.height = Math.max(0 , scroll-305-wh) + 'px';
+
+    if(wh > wrapperContainerNode[j].getBoundingClientRect().bottom){
         wrapperContainerNode[j].classList.add("actived");
         j++;
     }else{
