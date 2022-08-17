@@ -1,8 +1,8 @@
 const radient = document.querySelectorAll('.title-content');
-      quality = document.querySelectorAll('.qualifications');
+      qualif = document.querySelectorAll('.qualifications .tall-title');
       firstWrapper = document.querySelector('.first-wrapper');
       secondeWrapper = document.querySelector('.seconde-wrapper');
-      timeline = document.getElementById('timeline-wrapper');
+      timeline = document.querySelector('.timeline-wrapper-line');
       fixtimeline = document.querySelector('.timeline-wrapper');
       wrapperContainerNode = document.querySelectorAll('.wrapper-container');
 
@@ -37,9 +37,11 @@ var j = 0;
 function TimlineAnimation(scroll) {
     var wh = window.innerHeight;
 
-    timeline.style.height = Math.max(0 , scroll-305-wh) + 'px';
+    if (-timeline.getBoundingClientRect().top+wh/2 > 0){
+        timeline.style.height = -timeline.getBoundingClientRect().top + wh/2 + 'px';
+    }
 
-    if(wh > wrapperContainerNode[j].getBoundingClientRect().bottom){
+    if (wrapperContainerNode[j].getBoundingClientRect().top < 0){
         wrapperContainerNode[j].classList.add("actived");
         j++;
     }else{
@@ -47,10 +49,10 @@ function TimlineAnimation(scroll) {
         j--;
     }
 
-    if(j < 0){
+    if (j < 0){
         j++;
     }
-    if(j >= wrapperContainerNode.length){
+    if(j > length.wrapperContainerNode){
         j--;
     }
 }
@@ -60,7 +62,7 @@ function TextAnimation(container) {
         elementPos = Math.min(Math.max(0, -container.getBoundingClientRect().top + window.innerHeight/2), elementHeight);
         opacite = elementPos / elementHeight;
 
-    const translate = 80;
+    const translate = 150;
           rotation = 60;
     
     if (container === firstWrapper){
@@ -76,15 +78,12 @@ function TextAnimation(container) {
     if (container === secondeWrapper){
         var animation = translate - (elementPos / elementHeight)*translate;
 
-        quality[0].style.opacity = opacite;
-        quality[0].style.transform = "translateX("+animation+"px)";
-
-        quality[1].style.opacity = opacite;
-        quality[1].style.transform = "translateX("+ -animation +"px)";
+        qualif[0].style.opacity = opacite;
+        qualif[0].style.transform = "translateX("+animation+"px)";
     }
 }
 
-function reveal() {
+/* function reveal() {
   const unreveal = document.querySelectorAll('.unreveal p');
 
   for (var i = 0; i < unreveal.length; i++) {
@@ -100,4 +99,4 @@ function reveal() {
     }
 
   }
-}
+} */

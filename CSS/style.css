@@ -33,10 +33,10 @@ body {
 body::before{
   content: "";
   position: fixed;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 500;
-  opacity: .025;
+  opacity: .015;
   pointer-events: none;
   background-size: cover;
   background: url(../image/noise.gif);
@@ -50,9 +50,6 @@ body::before{
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb:hover {
   background: transparent;
 }
 
@@ -119,7 +116,7 @@ body::before{
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: var(--background);
+  background: var(--background);
 }
 
 @keyframes menuFade {
@@ -205,9 +202,10 @@ body::before{
 .img-background{
   width: 100%;
   height: 100%;
-  background: -moz-linear-gradient(180deg, var(--secondary-color) -30%, var(--background) 110%);
-  background: -webkit-linear-gradient(180deg, var(--secondary-color) -30%, var(--background) 110%);
-  background: linear-gradient(180deg, var(--secondary-color) -30%, var(--background) 110%);
+  background: url(../image/background.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .copyright{
@@ -230,7 +228,7 @@ body::before{
   align-items: center;
 }
 .resaux ul li{
-  margin: 6px 0;
+  margin-bottom: 15px;
   font-size: 17px;
   display: block;
   opacity: .4;
@@ -365,8 +363,8 @@ body::before{
   justify-content: left;
   flex-direction: row;
   width: 100%;
-  position: relative;
-  top: 300px;
+  position: absolute;
+  top: 1200px;
 }
 .wrapper span {
   color: var(--secondary-color);
@@ -377,18 +375,23 @@ body::before{
   padding-left: 10%;
 }
 
-.timeline-wrapper, .timeline-wrapper-line {
+.timeline-wrapper{
   z-index: 2;
   position: relative;
   background: white;
   top: 50vh;
+  height: 100vh;
   width: 4px;
+  overflow: hidden;
 }
+
 .timeline-wrapper-line {
   position: absolute;
   background: var(--secondary-color);
+  z-index: 2;
   top: 0;
-  bottom: 0;
+  height: 0;
+  width: 4px;
 }
 
 @keyframes pulseNodes {
@@ -419,7 +422,7 @@ body::before{
 
 .wrapper-content{
   overflow: hidden;
-  padding-left: 10%;
+  padding-left: 6%;
   height: 100%;
   width: 100%;
   display: flex;
@@ -503,16 +506,6 @@ body::before{
   position: absolute;
   bottom: 0;
   left: 0;
-}
-
-/* Footer */
-
-footer {
-  width: 100vw;
-  height: 30vh;
-  background-color: var(--seconde-background);
-  top: 120vh;
-  position: relative;
 }
 
 /* OS home */
